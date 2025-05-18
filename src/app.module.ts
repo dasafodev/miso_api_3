@@ -6,6 +6,7 @@ import { BookModule } from './book/book.module';
 import { Book } from './book/entities/book.entity';
 import { Library } from './library/entities/library.entity';
 import { LibraryModule } from './library/library.module';
+import { LibraryBookModule } from './library-book/library-book.module';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { LibraryModule } from './library/library.module';
       synchronize: true,
       logging: true,
     }),
-    LibraryModule, BookModule],
+    LibraryModule, BookModule, LibraryBookModule],
   controllers: [AppController],
   providers: [AppService],
 })
