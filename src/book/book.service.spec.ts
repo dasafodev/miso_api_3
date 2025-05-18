@@ -9,7 +9,7 @@ const mockBook = {
   id: 1,
   title: 'Test Book',
   author: 'Test Author',
-  publishedDate: new Date('2020-01-01'),
+  publishedDate: '2020-01-01',
   isbn: '978-3-16-148410-0',
   libraries: [],
 };
@@ -52,7 +52,7 @@ describe('BookService', () => {
   });
 
   it('should throw if publishedDate is in the future', async () => {
-    const dto = { ...mockBook, publishedDate: new Date(Date.now() + 10000000) };
+    const dto = { ...mockBook, publishedDate: new Date(Date.now() + 10000000).toISOString() };
     await expect(service.create(dto as any)).rejects.toThrow(BadRequestException);
   });
 
@@ -75,7 +75,7 @@ describe('BookService', () => {
   });
 
   it('should throw if update publishedDate is in the future', async () => {
-    const updateDto = { publishedDate: new Date(Date.now() + 10000000) };
+    const updateDto = { publishedDate: new Date(Date.now() + 10000000).toISOString() };
     await expect(service.update(1, updateDto as any)).rejects.toThrow(BadRequestException);
   });
 

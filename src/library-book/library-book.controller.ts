@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { LibraryBookService } from './library-book.service';
 
 @Controller('libraries')
@@ -29,7 +29,7 @@ export class LibraryBookController {
     return this.libraryBookService.findBookFromLibrary(+libraryId, +bookId);
   }
 
-  @Patch(':libraryId/books/:bookId')
+  @Put(':libraryId/books/:bookId')
   updateBooksFromLibrary(
     @Param('libraryId') libraryId: string,
     @Param('bookId') bookId: string,

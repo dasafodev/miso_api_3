@@ -14,7 +14,7 @@ export class Book {
     author: string;
 
     @Column()
-    publishedDate: Date;
+    publishedDate: string;
 
     @Column()
     isbn: string;

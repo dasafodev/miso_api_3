@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { CreateLibraryDto } from './dto/create-library.dto';
 import { UpdateLibraryDto } from './dto/update-library.dto';
 import { LibraryService } from './library.service';
@@ -22,7 +22,7 @@ export class LibraryController {
     return this.libraryService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateLibraryDto: UpdateLibraryDto) {
     return this.libraryService.update(+id, updateLibraryDto);
   }

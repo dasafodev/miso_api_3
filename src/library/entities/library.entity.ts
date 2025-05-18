@@ -16,10 +16,10 @@ export class Library {
     @Column()
     city: string;
 
-    @Column({ type: 'time' })
+    @Column()
     openingTime: string;
 
-    @Column({ type: 'time' })
+    @Column()
     closingTime: string;
 
     @ManyToMany(() => Book, book => book.libraries)
