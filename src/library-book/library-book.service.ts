@@ -35,7 +35,6 @@ export class LibraryBookService {
       throw new NotFoundException(`Book with ID ${bookId} not found`);
     }
 
-    // Check if book is already in the library
     if (library.books.some(b => b.id === bookId)) {
       throw new BadRequestException(`Book with ID ${bookId} is already in library ${libraryId}`);
     }
@@ -97,8 +96,6 @@ export class LibraryBookService {
         throw new NotFoundException(`Book with ID ${updateLibraryBookDto.bookId} not found`);
       }
 
-      // We're replacing all books with this one book in this implementation
-      // This could be modified to add to the collection instead
       library.books = [newBook];
       await this.libraryRepository.save(library);
     }
